@@ -1,4 +1,6 @@
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -6,6 +8,7 @@
     <title>Task 1 - Personal Information</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <nav>
         <ul>
@@ -18,7 +21,64 @@
     </nav>
     <main>
         <h1>Personal Information</h1>
-        <!-- Enter personal information content here -->
+
+        <section>
+            <div>
+                <img src="images/profile_image.jpg">
+            </div>
+            <div>
+                <div class="info-item">
+                    <p class="label">Name:</p>
+                    <p class="value">Angus Dobson</p>
+                </div>
+                <div class="info-item">
+                    <p class="label">Student Number:</p>
+                    <p class="value">S3814798</p>
+                </div>
+                <div class="info-item">
+                    <p class="label">Email:</p>
+                    <p class="value">S3814798@student.rmit.edu.au</p>
+                </div>
+                <div class="info-item">
+                    <p class="label">Background & Languages:</p>
+                    <p class="value">Australian. I can speak English and Japanese</p>
+                </div>
+                <div class="info-item">
+                    <p class="label">Education:</p>
+                    <p class="value">I am a few subjects from finishing my degree. I have recently completed the subjects Cloud Computing and Software Engineering Project Management. I also have worked full time in the IT industry for the past 7 years.</p>
+                </div>
+                <div class="info-item">
+                    <p class="label">Other:</p>
+                    <p class="value">I particularly like plants and own several expensive rare varieties. My most recent addition is a Monstera Borsigiana Albo</p>
+                </div>
+            </div>
+        </section>
+        
     </main>
+    
+    <div id="imageViewer" style="display: none;">
+        <span id="closeImageViewer" style="cursor: pointer;">&times;</span>
+        <img id="imageViewerContent">
+    </div>
+
 </body>
+
+<script>
+    var images = document.querySelectorAll('main img');
+    var imageViewer = document.getElementById('imageViewer');
+    var imageViewerContent = document.getElementById('imageViewerContent');
+    var closeImageViewer = document.getElementById('closeImageViewer');
+
+    images.forEach(function (img) {
+        img.addEventListener('click', function (event) {
+            imageViewerContent.src = event.target.src;
+            imageViewer.style.display = 'flex';
+        });
+    });
+
+    closeImageViewer.addEventListener('click', function () {
+        imageViewer.style.display = 'none';
+    });
+</script>
+
 </html>

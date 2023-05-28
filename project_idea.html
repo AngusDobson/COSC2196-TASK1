@@ -1,11 +1,14 @@
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task 1 - Project Idea</title>
+    <title>Dinnerizer - Project Idea</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <nav>
         <ul>
@@ -18,7 +21,116 @@
     </nav>
     <main>
         <h1>Project Idea</h1>
-        <!-- Enter Project Idea content here -->
+
+        <img id="dinnerizer-logo" src="images/logo-black.png">
+
+        <h2>Overview</h2>
+        <p>"Dinnerizer" will be a desktop application that offers a streamlined approach to weekly meal planning and
+            grocery shopping. The app will present a variety of dinner options based on the user's preferences, dietary
+            restrictions, and chosen cuisine styles. It will also generate a detailed list of recipes for each chosen
+            meal and compile an organized shopping list for user convenience. The primary goal of Dinnerizer is to
+            mitigate the stress of daily dinner decision-making, encourage diversity in meals, and ultimately, foster an
+            enjoyable cooking experience.</p>
+
+        <h2>Motivation</h2>
+        <p>The conception of Dinnerizer comes from the daily dilemma faced by many - deciding what to cook for dinner.
+            Often, this indecisiveness leads to repetitive meal choices or reliance on unhealthy takeaway options.
+            Mismanaged grocery shopping can also lead to food waste or unnecessary multiple shopping trips. Dinnerizer
+            will address these challenges by offering varied meal suggestions and compiling an efficient shopping list,
+            thus promoting home cooking and healthier dietary habits. Its potential impact on daily life and eating
+            habits is significant, making this project a valuable contribution to the digital tools aimed at improving
+            lifestyle.</p>
+
+        <h2>Description</h2>
+        <p>Dinnerizer is an application designed with the goal of making weekly meal planning intuitive, efficient, and
+            enjoyable for users. The core of the application lies in its extensive recipe database, comprising an array
+            of dishes that span various cuisine types, dietary requirements, and preparation times. This breadth of
+            options ensures users can exercise maximum customization in their meal planning process, aligning it with
+            their individual dietary preferences and lifestyles.</p>
+
+        <p>The user experience begins the moment the application is launched. The user interface is designed for
+            simplicity, with clear directions guiding users through their first meal planning session. The process
+            starts by collecting key information from users, including the number of meals they wish to plan for the
+            week, the desired cuisine type, and specific dietary restrictions or preferences. For instance, if a user
+            intends to plan seven meals consisting solely of vegetarian options, they can simply input these details and
+            Dinnerizer will generate a list of seven vegetarian dinner ideas. The application goes further to
+            accommodate detailed dietary nuances such as low-carb, gluten-free, or dairy-free choices.</p>
+
+        <p>Each meal suggested by Dinnerizer is accompanied by a detailed recipe card. These cards are designed to
+            provide comprehensive culinary guidance and include an ingredient list with precise quantities, step-by-step
+            cooking instructions, and a visually appealing photograph of the completed dish. This presentation enables
+            users to anticipate the outcome and plan their cooking process more effectively. To enhance the user's
+            interaction with these recipes, Dinnerizer includes a 'favourites' feature. This allows users to save
+            recipes they enjoyed or wish to try, offering quick and easy access for future meal planning sessions.</p>
+
+        <p>One of the standout features of Dinnerizer is its capacity to generate an efficient shopping list based on
+            the selected meals for the week. The application intelligently aggregates all the necessary ingredients and
+            sorts them into categories such as dairy, produce, and grains. This categorization aims to streamline the
+            shopping experience, reducing the time spent searching for items and avoiding repeated trips down the same
+            aisle. Before this list is finalised, users have the opportunity to review it and check off ingredients
+            already available in their pantry, thereby avoiding unnecessary purchases and reducing food waste. Once
+            finalised, this list can be exported in a printable format or emailed directly to the user for easy access
+            during shopping.</p>
+
+        <p>Dinnerizer also acknowledges and caters to the adventurous eaters with the 'Surprise Me' feature. This
+            exciting option randomly selects recipes from the database, encouraging users to try new dishes and explore
+            varied cuisine styles. This feature promotes culinary diversity and adds an element of surprise to the
+            otherwise routine meal planning process.</p>
+
+        <p>As Dinnerizer evolves, the roadmap includes potential enhancements aimed at increasing user convenience. One
+            such improvement is integrating the application with local supermarket online platforms. This feature would
+            allow users to directly order their shopping list through the application, minimizing the time and effort
+            spent on physical shopping trips. This advancement would mark Dinnerizer not just as a meal planning tool,
+            but a comprehensive meal management solution, further simplifying and enriching the home-cooking experience.
+        </p>
+
+        <h2>Tools and Technologies</h2>
+        <p>The Dinnerizer application will be constructed using Java due to its wide-ranging libraries and
+            cross-platform capabilities. JavaFX will be utilised for crafting a user-friendly interface. Local text
+            files will serve as data storage for recipes, user preferences, and other data, instead of a traditional
+            database. Java's built-in I/O libraries will facilitate reading from and writing to these text files.
+            Additional libraries may be explored to facilitate exporting shopping lists, either as printable PDFs or
+            directly sent to users' emails.</p>
+
+        <h2>Skills Required</h2>
+        <p>Building Dinnerizer will require proficiency in Java programming and experience with JavaFX for GUI design.
+            Skills in file handling in Java, particularly reading from and writing to text files, will be essential.
+            Understanding of good user interface design principles will be beneficial in creating an intuitive and
+            user-friendly application. An ability to conduct user testing, respond to feedback, and iteratively improve
+            the application will be crucial to its successful development and eventual reception among users.</p>
+
+        <h2>Outcome</h2>
+        <p>Upon completion, Dinnerizer will be a valuable tool assisting in meal planning and providing a structured
+            approach to grocery shopping. By alleviating decision fatigue, Dinnerizer will facilitate a diverse range of
+            meals, promoting healthier home-cooked diets. Efficient grocery shopping could also mean less waste and
+            cost-saving. This application is designed to encourage a healthy, sustainable lifestyle by making
+            home-cooking more accessible, efficient, and enjoyable. While Dinnerizer's primary function is practical,
+            its potential impact on improving users' lifestyle is substantial.</p>
     </main>
+
+    <div id="imageViewer" style="display: none;">
+        <span id="closeImageViewer" style="cursor: pointer;">&times;</span>
+        <img id="imageViewerContent">
+    </div>
+
 </body>
+
+<script>
+    var images = document.querySelectorAll('main img');
+    var imageViewer = document.getElementById('imageViewer');
+    var imageViewerContent = document.getElementById('imageViewerContent');
+    var closeImageViewer = document.getElementById('closeImageViewer');
+
+    images.forEach(function (img) {
+        img.addEventListener('click', function (event) {
+            imageViewerContent.src = event.target.src;
+            imageViewer.style.display = 'flex';
+        });
+    });
+
+    closeImageViewer.addEventListener('click', function () {
+        imageViewer.style.display = 'none';
+    });
+</script>
+
 </html>

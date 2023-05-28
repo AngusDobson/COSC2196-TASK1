@@ -1,4 +1,5 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -6,6 +7,7 @@
     <title>Task 1 - Personal Profile</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <nav>
         <ul>
@@ -18,7 +20,42 @@
     </nav>
     <main>
         <h1>Personal Profile</h1>
-        <!-- Enter Personal Profile content here -->
+
+        <h2>Myers-Briggs Test</h2>
+        <p><a href="https://www.16personalities.com/entj-personality">ENTJ-A</a></p>
+        <img src="/images/myersbriggs.png">
+
+        <h2>Online Learning Style Test</h2>
+        <img src="images/onlinelearning.png">
+
+        <h2>Big Five Personality Test</h2>
+        <img src="images/big5.png">
+
     </main>
+    
+    <div id="imageViewer" style="display: none;">
+        <span id="closeImageViewer" style="cursor: pointer;">&times;</span>
+        <img id="imageViewerContent">
+    </div>
+
 </body>
+
+<script>
+    var images = document.querySelectorAll('main img');
+    var imageViewer = document.getElementById('imageViewer');
+    var imageViewerContent = document.getElementById('imageViewerContent');
+    var closeImageViewer = document.getElementById('closeImageViewer');
+
+    images.forEach(function (img) {
+        img.addEventListener('click', function (event) {
+            imageViewerContent.src = event.target.src;
+            imageViewer.style.display = 'flex';
+        });
+    });
+
+    closeImageViewer.addEventListener('click', function () {
+        imageViewer.style.display = 'none';
+    });
+</script>
+
 </html>
